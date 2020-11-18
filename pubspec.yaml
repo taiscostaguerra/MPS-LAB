@@ -21,6 +21,10 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  rxdart: ^0.24.1
+  provider: ^4.3.2+2
+  hive: ^1.4.4+1
+  hive_flutter: ^0.3.1
   flutter:
     sdk: flutter
 
@@ -32,6 +36,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  hive_generator: ^0.8.2
+  build_runner: ^1.10.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
