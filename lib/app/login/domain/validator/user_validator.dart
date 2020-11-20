@@ -6,9 +6,9 @@ mixin UserValidator {
       return "Máximo de 20 caracteres";
     }
     //To do conferir isso aqui
-    // else if (login.contains(RegExp("r'[0-9]"))) {
-    //   return "Não pode ter números";
-    // }
+    else if (login.contains(RegExp("[0-9]{1,20}"))) {
+       return "Não pode ter números";
+     }
     else {
       return null;
     }
@@ -20,10 +20,10 @@ mixin UserValidator {
     } else if (password.length < 8) {
       return "Mínimo de 8 caracteres";
     }
-    //To Do ajeitar aqui
-    // else if (password.contains("letras e números")) {
-    //   return "Deve possuir letras e números e ao menos 2 números.";
-    // }
+    
+     else if (password.contains(RegExp("[A-Z-a-z]{6,}[0-9]{2,}"))) {
+       return "Deve possuir letras e números e ao menos 2 números.";
+     }
     else {
       return null;
     }
