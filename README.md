@@ -1,4 +1,4 @@
-# Laboratorio 1 - Métodos de Projetos de Software
+# Laboratorio  - Métodos de Projetos de Software
 
 ## Como usar o aplicativo
 
