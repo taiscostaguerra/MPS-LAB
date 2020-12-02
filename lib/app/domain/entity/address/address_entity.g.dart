@@ -1,34 +1,30 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'contact_model.dart';
+part of 'address_entity.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class ContactModelAdapter extends TypeAdapter<ContactModel> {
+class AddressModelAdapter extends TypeAdapter<AddressEntity> {
   @override
-  final int typeId = 1;
+  final int typeId = 2;
 
   @override
-  ContactModel read(BinaryReader reader) {
+  AddressEntity read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return ContactModel()
-      ..type = fields[0] as String
-      ..contact = fields[1] as String;
+    return AddressEntity()..zipCode = fields[0] as String;
   }
 
   @override
-  void write(BinaryWriter writer, ContactModel obj) {
+  void write(BinaryWriter writer, AddressEntity obj) {
     writer
-      ..writeByte(2)
-      ..writeByte(0)
-      ..write(obj.type)
       ..writeByte(1)
-      ..write(obj.contact);
+      ..writeByte(0)
+      ..write(obj.zipCode);
   }
 
   @override
@@ -37,7 +33,7 @@ class ContactModelAdapter extends TypeAdapter<ContactModel> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is ContactModelAdapter &&
+      other is AddressModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

@@ -1,9 +1,9 @@
 import 'package:hive/hive.dart';
 
-part 'user_model.g.dart';
+part 'user_entity.g.dart';
 
 @HiveType(typeId: 0)
-class UserModel {
+class UserEntity {
   @HiveField(0)
   String id;
 
@@ -13,11 +13,11 @@ class UserModel {
   @HiveField(2)
   String password;
 
-  UserModel({this.login, this.password});
+  UserEntity({this.login, this.password});
 
   @override
   bool operator ==(other) {
-    final user = other as UserModel;
+    final user = other as UserEntity;
     return user.login == this.login && user.password == this.password;
   }
 }

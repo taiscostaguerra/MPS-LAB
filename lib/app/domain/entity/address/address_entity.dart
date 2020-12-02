@@ -1,10 +1,10 @@
 
 import 'package:hive/hive.dart';
 
-part 'address_model.g.dart';
+part 'address_entity.g.dart';
 
 @HiveType(typeId: 2)
-class AddressModel{
+class AddressEntity{
 
   @HiveField(0)
   String zipCode;
