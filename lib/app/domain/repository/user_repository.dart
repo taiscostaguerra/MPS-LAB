@@ -1,4 +1,4 @@
-import 'package:mps/app/login/domain/model/user/user_model.dart';
+import 'package:mps/app/domain/model/user/user_model.dart';
 
 abstract class UserRepository {
   Future<void> save(UserModel user);

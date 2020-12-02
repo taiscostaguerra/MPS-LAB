@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mps/app/login/domain/controller/login_controller.dart';
-import 'package:mps/app/login/domain/model/user/user_model.dart';
+import 'package:mps/app/presentation/controller/controller.dart';
 import 'package:provider/provider.dart';
 
 class LoginView extends StatefulWidget {
@@ -9,7 +8,7 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-  LoginController controller;
+  Controller controller;
 
   @override
   void didChangeDependencies() {
@@ -32,7 +31,7 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    controller = Provider.of<LoginController>(context);
+    controller = Provider.of<Controller>(context);
     return Scaffold(
       key: controller.scaffoldKey,
       appBar: AppBar(
@@ -62,11 +61,11 @@ class _LoginViewState extends State<LoginView> {
               ),
               SizedBox(height: 16),
               RaisedButton(
-                onPressed: () => controller.save(_showError, _success),
+                onPressed: () => controller.saveUser(_showError, _success),
                 child: Text("Adicionar"),
               ),
               RaisedButton(
-                onPressed: () => controller.remove(_showError, _success),
+                onPressed: () => controller.removeUser(_showError, _success),
                 child: Text("Remover"),
               )
             ],

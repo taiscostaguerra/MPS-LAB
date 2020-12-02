@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:mps/app/login/domain/model/user/user_model.dart';
+import 'package:mps/app/domain/model/user/user_model.dart';
 
 class AppUtils {
   static Future<void> init() async {

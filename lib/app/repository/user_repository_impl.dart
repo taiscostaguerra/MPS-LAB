@@ -1,7 +1,7 @@
 import 'package:hive/hive.dart';
-import 'package:mps/app/login/domain/exception/login_exception.dart';
-import 'package:mps/app/login/domain/model/user/user_model.dart';
-import 'package:mps/app/login/domain/repository/user_repository.dart';
+import 'package:mps/app/domain/exception/login_exception.dart';
+import 'package:mps/app/domain/model/user/user_model.dart';
+import 'package:mps/app/domain/repository/user_repository.dart';
 
 class UserRepositoryImpl implements UserRepository {
   final Box box;
