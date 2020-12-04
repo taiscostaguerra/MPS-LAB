@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mps/app/domain/command/add_user_comand.dart';
+import 'package:mps/app/domain/entity/address/address_entity.dart';
+import 'package:mps/app/domain/entity/contact/contact_entity.dart';
+import 'package:mps/app/domain/entity/user/user_entity.dart';
 import 'package:mps/app/domain/exception/login_exception.dart';
-import 'package:mps/app/domain/model/address/address_model.dart';
-import 'package:mps/app/domain/model/contact/contact_model.dart';
-import 'package:mps/app/domain/model/user/user_model.dart';
 import 'package:mps/app/domain/repository/address_repository.dart';
 import 'package:mps/app/domain/repository/contact_repository.dart';
 import 'package:mps/app/domain/repository/user_repository.dart';
@@ -17,13 +18,14 @@ class Controller with UserValidator {
   final UserRepository userRepository;
   final AddressRepository addressRepository;
   final ContactRepository contactRepository;
+  final AddAddressComand addAddressComand;
 
-  Controller(this.userRepository, this.addressRepository, this.contactRepository);
+  Controller(this.userRepository, this.addressRepository, this.contactRepository, this.addAddressComand);
 
   void saveUser(Function(String) callback, Function(String) success) async {
     try {
       if (formKey.currentState.validate()) {
-        final user = UserModel(
+        final user = UserEntity(
             login: loginController.text, password: passwordController.text);
         await userRepository.save(user);
         success("Usuário ${user.login} salvo com sucesso");
@@ -36,7 +38,7 @@ class Controller with UserValidator {
   void removeUser(Function(String) callback, Function(String) success) async {
     try {
       if (formKey.currentState.validate()) {
-        final user = UserModel(
+        final user = UserEntity(
             login: loginController.text, password: passwordController.text);
         await userRepository.remove(user);
         success("Usuário ${user.login} removido com sucesso");
@@ -46,21 +48,23 @@ class Controller with UserValidator {
     }
   }
 
-  void saveAddress(AddressModel addressModel) => addressRepository.save(addressModel);
+  void saveAddress(AddressEntity addressModel) => addAddressComand.execute(addressModel);
 
-  void updateAddress(AddressModel addressModel) => addressRepository.update(addressModel);
+  void undoAddAdrress() => addAddressComand.undo();
 
-  Future<AddressModel> getAddress(String id) => addressRepository.findOne(id);
+  void updateAddress(AddressEntity addressModel) => addressRepository.update(addressModel);
 
-  void removeAddress(AddressModel addressModel) => addressRepository.delete(addressModel);
+  Future<AddressEntity> getAddress(String id) => addressRepository.findOne(id);
 
-  void saveContact(ContactModel contactModel) => contactRepository.save(contactModel);
+  void removeAddress(AddressEntity addressModel) => addressRepository.delete(addressModel);
 
-  void updateContact(ContactModel contactModel) => contactRepository.update(contactModel);
+  void saveContact(ContactEntity contactModel) => contactRepository.save(contactModel);
 
-  Future<ContactModel> getContact(String id) => contactRepository.findOne(id);
+  void updateContact(ContactEntity contactModel) => contactRepository.update(contactModel);
 
-  void removeContact(ContactModel contactModel) => contactRepository.delete(contactModel);
+  Future<ContactEntity> getContact(String id) => contactRepository.findOne(id);
+
+  void removeContact(ContactEntity contactModel) => contactRepository.delete(contactModel);
 
   
 

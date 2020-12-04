@@ -1,8 +1,8 @@
-import 'package:mps/app/domain/model/address/address_model.dart';
+import 'package:mps/app/domain/entity/address/address_entity.dart';
 
 abstract class AddressRepository{
-  Future<void> save(AddressModel addressModel);
-  Future<void> update(AddressModel addressModel);
-  Future<AddressModel> findOne(String id);
-  Future<void> delete(AddressModel addressModel);
+  Future<void> save(AddressEntity addressModel);
+  Future<void> update(AddressEntity addressModel);
+  Future<AddressEntity> findOne(String id);
+  Future<void> delete(AddressEntity addressModel);
 }

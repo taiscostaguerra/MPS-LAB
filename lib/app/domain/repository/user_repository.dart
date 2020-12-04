@@ -1,6 +1,6 @@
-import 'package:mps/app/domain/model/user/user_model.dart';
+import 'package:mps/app/domain/entity/user/user_entity.dart';
 
 abstract class UserRepository {
-  Future<void> save(UserModel user);
-  Future<void> remove(UserModel user);
+  Future<void> save(UserEntity user);
+  Future<void> remove(UserEntity user);
 }
